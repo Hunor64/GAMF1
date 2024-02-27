@@ -8,8 +8,10 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <Button Width="100px" Height="25px" x:Name="countButton" Click="CountButton_Click">Számol</Button>
-            <TextBlock Height="25px" Width="300px" x:Name="resultTextBlock" TextAlignment="Center" FontSize="16"></TextBlock>
+            <Button x:Name="countButton" Click="CountButton_Click">Számol</Button>
+            <TextBlock x:Name="resultTextBlock"></TextBlock>
+            <Button x:Name="btnSzamol" Click="btnSzamol_Click" Content="Számol" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="txtEredmeny" TextAlignment="Center" FontSize="16"/>
             <Button Width="100px" Height="25px" x:Name="btnSzamol" Click="btnSzamol_Click" Content="Számol" HorizontalAlignment="Center"/>
             <TextBlock Width="300px" Height="25px" x:Name="txtEredmeny" TextAlignment="Center" FontSize="16"/>
         </StackPanel>

@@ -83,5 +83,33 @@ namespace GAMF1
             }
         }
 
+
+        private void ReadButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var path = "szamok.txt"; // A fájl elérési útja
+                var pairsFrequency = new Dictionary<string, int>();
+
+                foreach (var line in File.ReadLines(path))
+                {
+                    for (int i = 0; i < line.Length - 1; i++)
+                    {
+                        var pair = line.Substring(i, 2);
+                        if (pairsFrequency.ContainsKey(pair))
+                            pairsFrequency[pair]++;
+                        else
+                            pairsFrequency[pair] = 1;
+                    }
+                }
+
+                var mostFrequentPair = pairsFrequency.OrderByDescending(p => p.Value).First().Key;
+                resultText.Text = $"Leggyakoribb kétjegyű szám: {mostFrequentPair}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hiba történt: {ex.Message}");
+            }
+        }
     }
 }
