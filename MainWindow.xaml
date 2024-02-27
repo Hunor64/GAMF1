@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GAMF1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="A Bajnoki Munka" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <Button x:Name="countButton" Click="CountButton_Click">Számol</Button>
-            <TextBlock x:Name="resultTextBlock"></TextBlock>
-            <Button x:Name="btnSzamol" Click="btnSzamol_Click" Content="Számol" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="txtEredmeny" TextAlignment="Center" FontSize="16"/>
-            <Button Width="100px" Height="25px" x:Name="btnSzamol" Click="btnSzamol_Click" Content="Számol" HorizontalAlignment="Center"/>
-            <TextBlock Width="300px" Height="25px" x:Name="txtEredmeny" TextAlignment="Center" FontSize="16"/>
+            <Button Width="100px" Height="25px" Margin="10px" x:Name="countButton" Click="CountButton_Click">Számol</Button>
+            <TextBlock Width="300px" Height="25px" Margin="10px" TextAlignment="Center" FontSize="16" x:Name="resultTextBlock"></TextBlock>
+            <Button Width="100px" Height="25px" Margin="10px" x:Name="btnSzamol" Click="btnSzamol_Click" Content="Számol" HorizontalAlignment="Center"/>
+            <TextBlock Width="300px" Height="25px" Margin="10px" TextAlignment="Center" FontSize="16" x:Name="txtEredmeny"/>
+            <Button Width="100px" Height="25px" Margin="10px" x:Name="readButton" Content="Számok Olvasása" Click="ReadButton_Click"/>
+            <TextBlock Width="300px" Height="25px" Margin="10px" TextAlignment="Center" FontSize="16" x:Name="resultText"/>
         </StackPanel>
     </Grid>
 </Window>
