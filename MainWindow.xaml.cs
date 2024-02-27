@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,7 @@ namespace GAMF1
         }
         private void CountButton_Click(object sender, RoutedEventArgs e)
         {
+            var stopwatch = Stopwatch.StartNew();
             int count = 0;
             long fixedNumber = 1310438493;
             try
@@ -45,6 +47,9 @@ namespace GAMF1
             {
                 MessageBox.Show($"Hiba történt: {ex.Message}");
             }
+            stopwatch.Stop();
+            
+            timeToRun.Text = stopwatch.Elapsed.ToString();
         }
 
         private long KozosOsztok(long a, long b)
@@ -61,6 +66,8 @@ namespace GAMF1
 
         private void btnSzamol_Click(object sender, RoutedEventArgs e)
         {
+            var stopwatch = Stopwatch.StartNew();
+
             string referencia = "2354211341";
             int szamlalo = 0;
             string referenciaRendezett = String.Concat(referencia.OrderBy(c => c));
@@ -81,14 +88,19 @@ namespace GAMF1
             {
                 MessageBox.Show($"Hiba történt a fájl beolvasása közben: {ex.Message}");
             }
+            stopwatch.Stop();
+
+            timeToRun.Text = stopwatch.Elapsed.ToString();
         }
 
 
         private void ReadButton_Click(object sender, RoutedEventArgs e)
         {
+            var stopwatch = Stopwatch.StartNew();
+
             try
             {
-                var path = "szamok.txt"; // A fájl elérési útja
+                var path = "szamok.txt";
                 var pairsFrequency = new Dictionary<string, int>();
 
                 foreach (var line in File.ReadLines(path))
@@ -110,6 +122,9 @@ namespace GAMF1
             {
                 MessageBox.Show($"Hiba történt: {ex.Message}");
             }
+            stopwatch.Stop();
+
+            timeToRun.Text = stopwatch.Elapsed.ToString();
         }
     }
 }

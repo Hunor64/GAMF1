@@ -14,6 +14,7 @@
             <TextBlock Width="300px" Height="25px" Margin="10px" TextAlignment="Center" FontSize="16" x:Name="txtEredmeny"/>
             <Button Width="100px" Height="25px" Margin="10px" x:Name="readButton" Content="Számok Olvasása" Click="ReadButton_Click"/>
             <TextBlock Width="300px" Height="25px" Margin="10px" TextAlignment="Center" FontSize="16" x:Name="resultText"/>
+            <TextBlock Width="300px" Height="25px" Margin="10px" TextAlignment="Center" FontSize="16" x:Name="timeToRun"/>
         </StackPanel>
     </Grid>
 </Window>
