@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,15 @@ namespace GAMF1
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<int> szamok = new();
         public MainWindow()
         {
             InitializeComponent();
+        }
+        public void RelativPrimSzamok()
+        {
+            szamok = File.ReadAllLines""();
+
         }
     }
 }
