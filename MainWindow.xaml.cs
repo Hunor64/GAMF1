@@ -21,15 +21,28 @@ namespace GAMF1
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<int> szamok = new();
+        List<Int64> szamok = new();
         public MainWindow()
         {
             InitializeComponent();
+            RelativPrimSzamok();
         }
         public void RelativPrimSzamok()
         {
-            szamok = File.ReadAllLines""();
-
+            int szam = 1310438493;
+            List<int> oszthatoVele = new();
+            foreach (var sor in File.ReadAllLines("szamok.txt"))
+            {
+                szamok.Add(Convert.ToInt64(sor));
+            }
+            for (int i = 2; i < szam; i++)
+            {
+                if (szam % i == 0)
+                {
+                    oszthatoVele.Add(i);
+                }
+            }
+            MessageBox.Show(szamok[1].ToString());
         }
     }
 }
