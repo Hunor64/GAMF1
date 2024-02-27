@@ -12,6 +12,8 @@
             <TextBlock x:Name="resultTextBlock"></TextBlock>
             <Button x:Name="btnSzamol" Click="btnSzamol_Click" Content="Számol" HorizontalAlignment="Center"/>
             <TextBlock x:Name="txtEredmeny" TextAlignment="Center" FontSize="16"/>
+            <Button x:Name="readButton" Content="Számok Olvasása" Click="ReadButton_Click"/>
+            <TextBlock x:Name="resultText" Text="Eredmény jelenik meg itt" Margin="10"/>
         </StackPanel>
     </Grid>
 </Window>
