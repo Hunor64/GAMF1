@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="btnGomb" Content="A Big Gomb"/>
+        <StackPanel>
+            <Button x:Name="countButton" Click="CountButton_Click">Számol</Button>
+            <TextBlock x:Name="resultTextBlock"></TextBlock>
+        </StackPanel>
     </Grid>
 </Window>

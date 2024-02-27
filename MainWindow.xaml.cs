@@ -25,44 +25,38 @@ namespace GAMF1
         public MainWindow()
         {
             InitializeComponent();
-            RelativPrimSzamok();
         }
-        public void RelativPrimSzamok()
-        {/*
-            int szam = 1310438493;
-            List<int> oszthatoVele = new();
-            foreach (var sor in File.ReadAllLines("szamok.txt"))
-            {
-                szamok.Add(Convert.ToInt64(sor));
-            }
-            for (int i = 2; i < szam; i++)
-            {
-                if (szam % i == 0)
-                {
-                    oszthatoVele.Add(i);
-                }
-            }*/
-            int relativPrimekSzama = 0;
-            foreach (int szam in szamok)
-            {
-                if (LegnagyobbKozosOszto(szam, 1310438493))
-                {
-                    relativPrimekSzama++;
-                }
-            }
-            MessageBox.Show(relativPrimekSzama.ToString());
-        }
-        public bool LegnagyobbKozosOszto(int elso, int masodik)
+        private void CountButton_Click(object sender, RoutedEventArgs e)
         {
-            for (int i = 2; i < Math.Max(elso,masodik); i++)
+            int count = 0;
+            long fixedNumber = 1310438493;
+            try
             {
-                if (elso%i==0&&masodik%i==0)
+                foreach (var line in File.ReadAllLines("szamok.txt"))
                 {
-                    return true;
+                    long number = long.Parse(line);
+                    if (CalculateGCD(number, fixedNumber) == 1)
+                    {
+                        count++;
+                    }
                 }
-
+                resultTextBlock.Text = $"Relatív prímek száma: {count}";
             }
-            return false;
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hiba történt: {ex.Message}");
+            }
+        }
+
+        private long CalculateGCD(long a, long b)
+        {
+            while (b != 0)
+            {
+                long temp = b;
+                b = a % b;
+                a = temp;
+            }
+            return a;
         }
 
     }
