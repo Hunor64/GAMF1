@@ -10,6 +10,8 @@
         <StackPanel>
             <Button x:Name="countButton" Click="CountButton_Click">Számol</Button>
             <TextBlock x:Name="resultTextBlock"></TextBlock>
+            <Button x:Name="btnSzamol" Click="btnSzamol_Click" Content="Számol" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="txtEredmeny" TextAlignment="Center" FontSize="16"/>
         </StackPanel>
     </Grid>
 </Window>

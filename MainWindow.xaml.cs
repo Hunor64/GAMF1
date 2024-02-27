@@ -59,7 +59,29 @@ namespace GAMF1
         }
 
 
-        int anagramCount = 0;
+        private void btnSzamol_Click(object sender, RoutedEventArgs e)
+        {
+            string referencia = "2354211341";
+            int szamlalo = 0;
+            string referenciaRendezett = String.Concat(referencia.OrderBy(c => c));
+
+            try
+            {
+                foreach (string sor in File.ReadLines("szamok.txt"))
+                {
+                    if (String.Concat(sor.OrderBy(c => c)) == referenciaRendezett && sor != referencia)
+                    {
+                        szamlalo++;
+                    }
+                }
+
+                txtEredmeny.Text = $"Anagrammák száma: {szamlalo}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hiba történt a fájl beolvasása közben: {ex.Message}");
+            }
+        }
 
     }
 }
