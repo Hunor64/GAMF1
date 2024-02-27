@@ -28,7 +28,7 @@ namespace GAMF1
             RelativPrimSzamok();
         }
         public void RelativPrimSzamok()
-        {
+        {/*
             int szam = 1310438493;
             List<int> oszthatoVele = new();
             foreach (var sor in File.ReadAllLines("szamok.txt"))
@@ -41,8 +41,29 @@ namespace GAMF1
                 {
                     oszthatoVele.Add(i);
                 }
+            }*/
+            int relativPrimekSzama = 0;
+            foreach (int szam in szamok)
+            {
+                if (LegnagyobbKozosOszto(szam, 1310438493))
+                {
+                    relativPrimekSzama++;
+                }
             }
-            MessageBox.Show(szamok[1].ToString());
+            MessageBox.Show(relativPrimekSzama.ToString());
         }
+        public bool LegnagyobbKozosOszto(int elso, int masodik)
+        {
+            for (int i = 2; i < Math.Max(elso,masodik); i++)
+            {
+                if (elso%i==0&&masodik%i==0)
+                {
+                    return true;
+                }
+
+            }
+            return false;
+        }
+
     }
 }
