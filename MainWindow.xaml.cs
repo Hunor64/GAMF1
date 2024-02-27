@@ -58,5 +58,9 @@ namespace GAMF1
             }
             return a;
         }
+
+
+        int anagramCount = 0;
+
     }
 }
