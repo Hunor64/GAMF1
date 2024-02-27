@@ -25,24 +25,38 @@ namespace GAMF1
         public MainWindow()
         {
             InitializeComponent();
-            RelativPrimSzamok();
         }
-        public void RelativPrimSzamok()
+        private void CountButton_Click(object sender, RoutedEventArgs e)
         {
-            int szam = 1310438493;
-            List<int> oszthatoVele = new();
-            foreach (var sor in File.ReadAllLines("szamok.txt"))
+            int count = 0;
+            long fixedNumber = 1310438493;
+            try
             {
-                szamok.Add(Convert.ToInt64(sor));
-            }
-            for (int i = 2; i < szam; i++)
-            {
-                if (szam % i == 0)
+                foreach (var line in File.ReadAllLines("szamok.txt"))
                 {
-                    oszthatoVele.Add(i);
+                    long number = long.Parse(line);
+                    if (CalculateGCD(number, fixedNumber) == 1)
+                    {
+                        count++;
+                    }
                 }
+                resultTextBlock.Text = $"Relatív prímek száma: {count}";
             }
-            MessageBox.Show(szamok[1].ToString());
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hiba történt: {ex.Message}");
+            }
+        }
+
+        private long CalculateGCD(long a, long b)
+        {
+            while (b != 0)
+            {
+                long temp = b;
+                b = a % b;
+                a = temp;
+            }
+            return a;
         }
     }
 }
