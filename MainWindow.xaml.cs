@@ -21,7 +21,6 @@ namespace GAMF1
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Int64> szamok = new();
         public MainWindow()
         {
             InitializeComponent();
@@ -35,7 +34,7 @@ namespace GAMF1
                 foreach (var line in File.ReadAllLines("szamok.txt"))
                 {
                     long number = long.Parse(line);
-                    if (CalculateGCD(number, fixedNumber) == 1)
+                    if (KozosOsztok(number, fixedNumber) == 1)
                     {
                         count++;
                     }
@@ -48,7 +47,7 @@ namespace GAMF1
             }
         }
 
-        private long CalculateGCD(long a, long b)
+        private long KozosOsztok(long a, long b)
         {
             while (b != 0)
             {
